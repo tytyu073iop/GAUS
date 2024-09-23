@@ -43,7 +43,41 @@ int main() {
     }
 
     //creating b
-    auto b = A.getB(X);
+    auto B = A.getB(X);
+
+    //creating new matrix and connecting for gaus
+    auto gaus = A;
+    for (int i = 0; i < n; i++)
+    {
+        gaus[i].push_back(B[i]);
+    }
+
+    //gaus
+    auto solve = Gaus(gaus);
+
+    //printing
+    {
+        const int q = 5;
+        std::cout << "presize:\n";
+        for (int i = 0; i < q; i++)
+        {
+            std::cout << X[i] << " ";
+        }
+        for (int i = 1; i <= q; i++)
+        {
+            std::cout << X[(n - i)] << " ";
+        }
+        std::cout << "\nnot:\n";
+        std::cout << "presize:\n";
+        for (int i = 0; i < q; i++)
+        {
+            std::cout << solve[i] << " ";
+        }
+        for (int i = 1; i <= q; i++)
+        {
+            std::cout << solve[(n - i)] << " ";
+        }
+    }
 
     return 0;
 }
