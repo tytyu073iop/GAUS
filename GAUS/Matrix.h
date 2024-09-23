@@ -10,7 +10,9 @@ struct Matrix
 {
 	matrixType matrix;
 	Matrix(matrixType matrix);
+	Matrix(std::vector<std::vector<type>> v);
 	void swapElementsByVertical(size_t, size_t);
 	size_t size() const;
 	MathematicalVector& operator[](size_t);
+	std::vector<type> getB(std::vector<type> v) const;
 };
