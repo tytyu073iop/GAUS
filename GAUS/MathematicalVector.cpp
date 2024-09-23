@@ -26,8 +26,9 @@ type MathematicalVector::Normal() const
 	// 1
 	type sum = 0;
 	for (const auto& i : *this) {
-		sum += abs(i);
+		sum += fabs(i);
 	}
+	return sum;
 }
 
 MathematicalVector operator*(const MathematicalVector& left, const double& right)

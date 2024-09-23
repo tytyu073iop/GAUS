@@ -60,7 +60,7 @@ std::vector<type> Gaus(Matrix matrix)
 	}
 	for (size_t i = 0; i < n; i++)
 	{
-		std::swap(XSys[i], XSys[places[i]]);
+		// std::swap(XSys[i], XSys[places[i]]);
 	}
 	return XSys;
 }

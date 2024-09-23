@@ -123,7 +123,8 @@ void testGaus() {
         // Check if the solution matches the expected solution
         assert(solution.size() == expectedSolution.size());
         for (size_t i = 0; i < solution.size(); ++i) {
-            // assert(std::fabs(solution[i] - expectedSolution[i]) < 1e-13);  // Check with a tolerance for floating point comparison
+            std::cout << std::fabs(solution[i] - expectedSolution[i]);
+            assert(std::fabs(solution[i] - expectedSolution[i]) < 1e-13);  // Check with a tolerance for floating point comparison
         }
 
         std::cout << "Test 1 passed: Simple 3x3 system of equations solved correctly!" << std::endl;
