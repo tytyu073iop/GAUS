@@ -1,4 +1,5 @@
 #include "MathematicalVector.h"
+#include <cmath>
 
 MathematicalVector& MathematicalVector::operator-=(const MathematicalVector& right)
 {
@@ -10,16 +11,23 @@ MathematicalVector& MathematicalVector::operator-=(const MathematicalVector& rig
     return *this;
 }
 
-MathematicalVector::MathematicalVector(std::vector<double> v)
+MathematicalVector::MathematicalVector(std::vector<double> v) : std::vector<type>(v)
 {
-	for (auto i : v)
-	{
-		this->push_back(i);
-	}
+
 }
 
 MathematicalVector::MathematicalVector()
 {
+
+}
+
+type MathematicalVector::Normal() const
+{
+	// 1
+	type sum = 0;
+	for (const auto& i : *this) {
+		sum += abs(i);
+	}
 }
 
 MathematicalVector operator*(const MathematicalVector& left, const double& right)
@@ -29,4 +37,13 @@ MathematicalVector operator*(const MathematicalVector& left, const double& right
 		i *= right;
 	}
 	return v;
+}
+
+MathematicalVector operator-(const MathematicalVector& left, const MathematicalVector& right)
+{
+	MathematicalVector c(left);
+	for (int i = 0; i < c.size(); i++) {
+		c[i] -= right[i];
+	}
+	return c;
 }

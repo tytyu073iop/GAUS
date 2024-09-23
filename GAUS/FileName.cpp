@@ -16,6 +16,7 @@ int main() {
     testGaus();
 
     // Random
+    auto begin = time(NULL);
     srand(time(NULL)); 
 
     //creating
@@ -79,5 +80,10 @@ int main() {
         }
     }
 
+    // pogrsnost
+    std::cout << "\npogrestnost: " << ((X - MathematicalVector(solve)).Normal() / (MathematicalVector(X).Normal()));
+
+    //counting
+    std::cout << "\ntime: " << time(NULL) - begin << " mc\n";
     return 0;
 }
